@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D72A07F32014070600D81028 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A07F22014070600D81028 /* main.swift */; };
+		D72A07FB2014073E00D81028 /* BigInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A07FA2014073E00D81028 /* BigInteger.swift */; };
+		D7AD0348201497060065874B /* BigIntegerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD0347201497060065874B /* BigIntegerTest.swift */; };
+		D7AD034D201497660065874B /* BigInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A07FA2014073E00D81028 /* BigInteger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,12 +26,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D708F8A7201CB3F40061DA87 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D72A07EF2014070600D81028 /* BigInteger */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BigInteger; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72A07F22014070600D81028 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D72A07FA2014073E00D81028 /* BigInteger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigInteger.swift; sourceTree = "<group>"; };
+		D7AD0345201497060065874B /* BigIntegerTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BigIntegerTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7AD0347201497060065874B /* BigIntegerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigIntegerTest.swift; sourceTree = "<group>"; };
+		D7AD0349201497060065874B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D72A07EC2014070600D81028 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7AD0342201497060065874B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,7 +56,10 @@
 		D72A07E62014070600D81028 = {
 			isa = PBXGroup;
 			children = (
+				D708F8A7201CB3F40061DA87 /* README.md */,
 				D72A07F12014070600D81028 /* BigInteger */,
+				D72A07F92014071F00D81028 /* OOPUtils */,
+				D7AD0346201497060065874B /* BigIntegerTest */,
 				D72A07F02014070600D81028 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				D72A07EF2014070600D81028 /* BigInteger */,
+				D7AD0345201497060065874B /* BigIntegerTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +79,23 @@
 				D72A07F22014070600D81028 /* main.swift */,
 			);
 			path = BigInteger;
+			sourceTree = "<group>";
+		};
+		D72A07F92014071F00D81028 /* OOPUtils */ = {
+			isa = PBXGroup;
+			children = (
+				D72A07FA2014073E00D81028 /* BigInteger.swift */,
+			);
+			path = OOPUtils;
+			sourceTree = "<group>";
+		};
+		D7AD0346201497060065874B /* BigIntegerTest */ = {
+			isa = PBXGroup;
+			children = (
+				D7AD0347201497060065874B /* BigIntegerTest.swift */,
+				D7AD0349201497060065874B /* Info.plist */,
+			);
+			path = BigIntegerTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +118,23 @@
 			productReference = D72A07EF2014070600D81028 /* BigInteger */;
 			productType = "com.apple.product-type.tool";
 		};
+		D7AD0344201497060065874B /* BigIntegerTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7AD034C201497060065874B /* Build configuration list for PBXNativeTarget "BigIntegerTest" */;
+			buildPhases = (
+				D7AD0341201497060065874B /* Sources */,
+				D7AD0342201497060065874B /* Frameworks */,
+				D7AD0343201497060065874B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BigIntegerTest;
+			productName = BigIntegerTest;
+			productReference = D7AD0345201497060065874B /* BigIntegerTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -93,6 +146,10 @@
 				ORGANIZATIONNAME = "OOPer (NAGATA, Atsuyuki)";
 				TargetAttributes = {
 					D72A07EE2014070600D81028 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					D7AD0344201497060065874B = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -111,9 +168,20 @@
 			projectRoot = "";
 			targets = (
 				D72A07EE2014070600D81028 /* BigInteger */,
+				D7AD0344201497060065874B /* BigIntegerTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D7AD0343201497060065874B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D72A07EB2014070600D81028 /* Sources */ = {
@@ -121,6 +189,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D72A07F32014070600D81028 /* main.swift in Sources */,
+				D72A07FB2014073E00D81028 /* BigInteger.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7AD0341201497060065874B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7AD0348201497060065874B /* BigIntegerTest.swift in Sources */,
+				D7AD034D201497660065874B /* BigInteger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +329,32 @@
 			};
 			name = Release;
 		};
+		D7AD034A201497060065874B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BigIntegerTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oopers.BigIntegerTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		D7AD034B201497060065874B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BigIntegerTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oopers.BigIntegerTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -268,6 +372,15 @@
 			buildConfigurations = (
 				D72A07F72014070600D81028 /* Debug */,
 				D72A07F82014070600D81028 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7AD034C201497060065874B /* Build configuration list for PBXNativeTarget "BigIntegerTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7AD034A201497060065874B /* Debug */,
+				D7AD034B201497060065874B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
