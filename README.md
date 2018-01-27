@@ -1,6 +1,6 @@
 # BigInteger-Swift
 
-An experimental implemetation of BigInteger in Swift. Providing a single class `BigInteger` which conforms to `SignedInteger`.
+An experimental implemetation of BigInteger in Swift. Providing a single struct `BigInteger` which conforms to `SignedInteger`.
 
 More experimental than practical. Better avoid using this code in your production apps.
 (Though, the LICENSE terms permit to. Remember NO WARRANTY terms and do it on your own risk.
