@@ -63,7 +63,7 @@ private class BigIntegerBuffer: Hashable {
         self.count = count
         if count != 0 {
             self.wordPtr = .allocate(capacity: count)
-            self.wordPtr!.initialize(to: 0, count: count)
+            self.wordPtr!.initialize(repeating: 0, count: count)
         }
         self.allocated = count
     }
@@ -166,7 +166,7 @@ private class BigIntegerBuffer: Hashable {
         let wordCount = (estimatedBits + BigIntegerBuffer.WordBits - 1)/BigIntegerBuffer.WordBits
         self.count = wordCount
         self.wordPtr = .allocate(capacity: wordCount)
-        self.wordPtr!.initialize(to: 0, count: wordCount)
+        self.wordPtr!.initialize(repeating: 0, count: wordCount)
         self.allocated = wordCount
         for ch in string {
             guard let digitVal = ch.digitValue(radix: radix) else {
@@ -190,7 +190,7 @@ private class BigIntegerBuffer: Hashable {
     deinit {
         if allocated != 0 {
             wordPtr!.deinitialize(count: allocated)
-            wordPtr!.deallocate(capacity: allocated)
+            wordPtr!.deallocate()
         }
     }
     
@@ -203,11 +203,11 @@ private class BigIntegerBuffer: Hashable {
             newPtr.moveInitialize(from: wordPtr!, count: min(newCount, count))
         }
         if newCount > count {
-            (newPtr + count).initialize(to: addedWord, count: newCount - count)
+            (newPtr + count).initialize(repeating: addedWord, count: newCount - count)
         }
         if allocated != 0 {
             wordPtr!.deinitialize(count: allocated)
-            wordPtr!.deallocate(capacity: allocated)
+            wordPtr!.deallocate()
         }
         allocated = newCount
         wordPtr = newPtr
@@ -644,11 +644,11 @@ private class BigIntegerBuffer: Hashable {
         assert(multiplicand.count > 0 && multiplier.count > 0)
         if allocated != 0 {
             wordPtr!.deinitialize(count: allocated)
-            wordPtr!.deallocate(capacity: allocated)
+            wordPtr!.deallocate()
         }
         count = multiplicand.count + multiplier.count
         wordPtr = .allocate(capacity: count)
-        wordPtr?.initialize(to: 0, count: count)
+        wordPtr?.initialize(repeating: 0, count: count)
 
         //Little endian
         self.wordPtr!.withMemoryRebound(to: Half.self, capacity: count * 2) {pd in
@@ -1596,7 +1596,7 @@ public struct BigInteger: SignedInteger, LosslessStringConvertible {
 
     //MARK: -
 
-    public init?<S: StringProtocol>(_ string: S, radix: Int = 10) where S.SubSequence: StringProtocol {
+    public init?<S: StringProtocol>(_ string: S, radix: Int = 10) {
         if string.starts(with: "-") {
             guard let buffer = BigIntegerBuffer(string.dropFirst(), radix: radix, negative: true) else {
                 return nil
