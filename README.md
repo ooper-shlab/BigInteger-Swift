@@ -10,4 +10,4 @@ If you are searching for a robust, stable and fast BigInteger library, better fi
 
 ## Build requirement
 
-Swift 4.1. I hope this code would compile and work with Linux vesion of Swift, but not tested.
+Swift 4.2. I hope this code would compile and work with Linux vesion of Swift, but not tested.
