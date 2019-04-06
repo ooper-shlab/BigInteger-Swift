@@ -276,24 +276,23 @@ private class BigIntegerBuffer: Hashable {
 
     //MARK: - Hashable
     
-    public var hashValue: Int {
-        var hash = count.hashValue
+    public func hash(into hasher: inout Hasher) {
+        count.hash(into: &hasher)
         if count <= 8 {
             for i in 0..<count {
-                hash = hash &* 13 &+ wordPtr![i].hashValue
+                wordPtr![i].hash(into: &hasher)
             }
         } else {
             for i in 0..<3 {
-                hash = hash &* 13 &+ wordPtr![i].hashValue
+                wordPtr![i].hash(into: &hasher)
             }
             for i in count/2-1 ..< count/2+1 {
-                hash = hash &* 13 &+ wordPtr![i].hashValue
+                wordPtr![i].hash(into: &hasher)
             }
             for i in count-3 ..< count {
-                hash = hash &* 13 &+ wordPtr![i].hashValue
+                wordPtr![i].hash(into: &hasher)
             }
         }
-        return hash
     }
     
     //MARK: - Comparable support
@@ -1239,8 +1238,8 @@ public struct BigInteger: SignedInteger, LosslessStringConvertible {
         return lhs.buffer == rhs.buffer
     }
 
-    public var hashValue: Int {
-        return buffer.hashValue
+    public func hash(into hasher: inout Hasher) {
+        buffer.hash(into: &hasher)
     }
     
     //MARK: - Numeric
